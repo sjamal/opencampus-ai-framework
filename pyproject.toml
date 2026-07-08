@@ -1,0 +1,28 @@
+[project]
+name = "opencampus-ai-framework"
+version = "0.1.0"
+description = "OpenCampus AI Framework Workflow"
+readme = "README.md"
+requires-python = ">=3.14"
+license = { text = "MIT" }
+authors = [
+    { name = "sjamal" }
+]
+
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic",
+    "pydantic-settings",
+    "sqlalchemy>=2.0.51",
+    "asyncpg>=0.31.0",
+    "alembic>=1.18.5",
+    "greenlet>=3.5.3",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "httpx",
+    "ruff",
+]
