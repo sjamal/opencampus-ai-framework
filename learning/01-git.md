@@ -36,7 +36,7 @@ By the end of this guide you will have:
 Repository Root
 
 ```text
-/Users/jamals/Documents/ITS/EASI/repos/github/opencampus-ai-framework
+opencampus-ai-framework
 ```
 
 All project commands are executed from this directory unless otherwise specified.

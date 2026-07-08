@@ -6,9 +6,9 @@ services:
     restart: unless-stopped
 
     environment:
-      POSTGRES_USER: opencampus
-      POSTGRES_PASSWORD: opencampus
-      POSTGRES_DB: opencampus
+        POSTGRES_USER: ${POSTGRES_USER:-opencampus}
+        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-opencampus}
+        POSTGRES_DB: ${POSTGRES_DB:-opencampus}
 
     ports:
       - "5432:5432"
