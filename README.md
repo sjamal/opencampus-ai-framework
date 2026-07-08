@@ -87,6 +87,10 @@ infrastructure/   Deployment resources
 | learning/ | Structured learning guide |
 | docs/adr/ | Architecture Decision Records |
 
+If it's explaining a technology (e.g., FastAPI, Docker, MCP), it belongs in learning/.
+If it's explaining a project-wide decision or process, it belongs in docs/.
+If it's explaining a specific folder or service, it belongs in that folder's README.md.
+
 ---
 
 ## Technology Stack (Planned)
