@@ -4,6 +4,8 @@ This roadmap outlines the planned evolution of the OpenCampus AI Framework.
 
 The roadmap is intentionally iterative. Each milestone should produce working software and improved documentation.
 
+See [Roadmap Coverage](README.md#roadmap-coverage) for the current implementation and documentation status of each phase.
+
 ---
 
 ## Phase 0 — Foundation

@@ -43,7 +43,7 @@ The project is currently focused on establishing:
 - Learning materials
 - Initial platform foundation
 
-Application development will begin in the next milestone.
+Application development is underway: the FastAPI backend, PostgreSQL persistence and the first audit events API are in place.
 
 ---
 
@@ -78,14 +78,21 @@ infrastructure/   Deployment resources
 
 ## Documentation
 
+The [Documentation index](docs/README.md) lists every document in the repository, its status, and how it maps to the roadmap.
+
 | Document | Purpose |
 |----------|---------|
-| docs/Vision.md | Project vision |
-| docs/Roadmap.md | Development roadmap |
-| docs/Architecture.md | System architecture |
-| docs/Glossary.md | Common terminology |
-| learning/ | Structured learning guide |
-| docs/adr/ | Architecture Decision Records |
+| [Documentation index](docs/README.md) | Every document, its status, and roadmap coverage |
+| [Vision](docs/Vision.md) | Project vision |
+| [Project Philosophy](PROJECT_PHILOSOPHY.md) | Guiding principles |
+| [Roadmap](docs/Roadmap.md) | Development roadmap |
+| [Architecture](docs/Architecture.md) | System architecture |
+| [Glossary](docs/Glossary.md) | Common terminology |
+| [Learning Roadmap](learning/00-roadmap.md) | Structured learning guide |
+| [Architecture Decision Records](docs/adr/README.md) | Architecture Decision Records |
+| [Engineering Journal](docs/Journal.md) | Why decisions were made, sprint by sprint |
+| [API Service](apps/api/README.md) | API structure and request flow |
+| [Testing](tests/README.md) | How to run the tests |
 
 If it's explaining a technology (e.g., FastAPI, Docker, MCP), it belongs in learning/.
 If it's explaining a project-wide decision or process, it belongs in docs/.
@@ -119,9 +126,7 @@ If it's explaining a specific folder or service, it belongs in that folder's REA
 
 ## Roadmap
 
-The project roadmap is maintained in:
-
-`docs/Roadmap.md`
+The project roadmap is maintained in [docs/Roadmap.md](docs/Roadmap.md).
 
 ---
 
@@ -129,9 +134,7 @@ The project roadmap is maintained in:
 
 Contributions are welcome.
 
-Please see:
-
-`CONTRIBUTING.md`
+Please see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
@@ -145,8 +148,8 @@ This project is under active development. The table below tracks the high-level 
 | Project Documentation | 🚧 In Progress | Core documentation created; will evolve with the project |
 | Learning Materials | 🚧 In Progress | Initial learning roadmap created |
 | Architecture | 🚧 In Progress | High-level architecture and vision defined |
-| Development Environment | ⏳ Planned | Python, VS Code, Docker, uv, PostgreSQL |
-| FastAPI Backend | ⏳ Planned | Initial API application |
+| Development Environment | ✅ Complete | Python, VS Code, Docker, uv, PostgreSQL |
+| FastAPI Backend | 🚧 In Progress | Health and audit events APIs |
 | Authentication & Authorization | ⏳ Planned | OAuth2 / OpenID Connect / RBAC |
 | Workflow Engine | ⏳ Planned | Generic approval and routing engine |
 | AI Service Layer | ⏳ Planned | Multi-provider LLM abstraction |
@@ -154,7 +157,7 @@ This project is under active development. The table below tracks the high-level 
 | Document Processing | ⏳ Planned | OCR, ingestion, metadata extraction |
 | Knowledge & RAG | ⏳ Planned | Enterprise knowledge retrieval |
 | Reference Applications | ⏳ Planned | Registrar, Admissions, HR, and additional examples |
-| Testing & CI/CD | ⏳ Planned | Automated testing and GitHub Actions |
+| Testing & CI/CD | 🚧 In Progress | pytest suite and GitHub Actions CI |
 | Production Deployment | ⏳ Planned | Containerized deployment and monitoring |
 
 ### Status Legend
@@ -169,5 +172,5 @@ This project is under active development. The table below tracks the high-level 
 
 ## License
 
-Released under the MIT License.
+Released under the [MIT License](LICENSE).
 

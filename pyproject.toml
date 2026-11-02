@@ -25,4 +25,9 @@ dev = [
     "pytest",
     "httpx",
     "ruff",
+    "pytest-asyncio>=1.4.0",
 ]
+
+[tool.pytest.ini_options]
+pythonpath = ["apps/api"]
+testpaths = ["tests"]
