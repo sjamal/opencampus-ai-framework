@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Lint and test
+    runs-on: ubuntu-latest
+
+    services:
+      # Throwaway database for this job only; credentials never leave the runner.
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: opencampus
+          POSTGRES_PASSWORD: opencampus
+          POSTGRES_DB: opencampus
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U opencampus"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DATABASE_URL: postgresql+asyncpg://opencampus:opencampus@localhost:5432/opencampus
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        # Python version comes from .python-version.
+        run: uv sync --locked
+
+      - name: Lint
+        run: uv run ruff check .
+
+      - name: Run migrations
+        working-directory: apps/api
+        run: uv run alembic upgrade head
+
+      - name: Run tests
+        run: uv run pytest -v
