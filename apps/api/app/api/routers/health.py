@@ -6,6 +6,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.db.session import get_session
 
 from app.core.config import settings
+from app.core.logging import logger
 
 
 router = APIRouter(
@@ -26,7 +27,8 @@ async def health(
         database_status = "connected"
 
     except Exception:
-        database_status = f"unavailable: {type(exc).__name__}"
+        logger.exception("Database health check failed")
+        database_status = "unavailable"
 
     return {
         "status": "healthy",

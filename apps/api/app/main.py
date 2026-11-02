@@ -2,11 +2,10 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
+from app.api.routers.audit_events import router as audit_events_router
 from app.api.routers.health import router as health_router
 from app.core.config import settings
 from app.core.logging import logger, setup_logging
-
-from app.api.routers import audit
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -37,9 +36,7 @@ app = FastAPI(
 
 app.include_router(health_router)
 
-app.include_router(
-    audit.router
-)
+app.include_router(audit_events_router)
 
 @app.get("/", tags=["Root"])
 async def root():

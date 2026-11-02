@@ -1,0 +1,24 @@
+import pytest_asyncio
+
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
+from sqlalchemy.pool import NullPool
+
+from app.core.config import settings
+
+
+@pytest_asyncio.fixture
+async def db_session() -> AsyncSession:
+    """
+    Creates an AsyncSession for repository tests.
+
+    Uses a dedicated unpooled engine so connections are never shared
+    across event loops (e.g. with TestClient-based API tests).
+    """
+
+    engine = create_async_engine(settings.database_url, poolclass=NullPool)
+    session_factory = async_sessionmaker(bind=engine, expire_on_commit=False)
+
+    async with session_factory() as session:
+        yield session
+
+    await engine.dispose()
